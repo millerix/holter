@@ -244,3 +244,7 @@ ModelManifest.xml
 /Holter_vs2015/Release_libcurldll
 /Holter_vs2015/Debug_libcurldll
 /Release_libcurldll
+/Holter_vs2015/DBFun.cpp
+/Holter_vs2015/DBFun.h
+/Holter_vs2015/PatientDatabase.cpp
+/Holter_vs2015/PatientDatabase.h
