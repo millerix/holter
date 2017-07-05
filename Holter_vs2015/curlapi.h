@@ -8,10 +8,10 @@
 
 using namespace std;
 
-size_t getcontentlengthfunc(const void *ptr, size_t size, size_t nmemb, void *stream);
+size_t getlenfuc(const void *ptr, size_t size, size_t nmemb, void *stream);
 size_t writefunc(const void *ptr, size_t size, size_t nmemb, void *stream);
 size_t storetoken(const void *ptr, size_t size, size_t nmemb, string *stream);
-size_t readfunc(void *ptr, size_t size, size_t nmemb, void *stream);
+size_t readfuc(void *ptr, size_t size, size_t nmemb, void *stream);
 
 class curl_interface
 {

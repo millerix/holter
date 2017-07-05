@@ -156,7 +156,7 @@ int curl_interface::download(CString remotepath, CString localpath, long timeout
 	curl_easy_setopt(curl, CURLOPT_URL, (LPSTR)(LPCSTR)remotepath);
 	curl_easy_setopt(curl, CURLOPT_USERPWD, "admin:admin");
 	curl_easy_setopt(curl, CURLOPT_CONNECTTIMEOUT, timeout);  // 设置连接超时，单位秒 设置http 头部处理函数
-	curl_easy_setopt(curl, CURLOPT_HEADERFUNCTION, getcontentlengthfunc);
+	curl_easy_setopt(curl, CURLOPT_HEADERFUNCTION, getlenfuc);
 	curl_easy_setopt(curl, CURLOPT_HEADERDATA, &filesize);
 	// 设置文件续传的位置给libcurl
 	curl_easy_setopt(curl, CURLOPT_RESUME_FROM_LARGE, use_resume ? local_file_len : 0);

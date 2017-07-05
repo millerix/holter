@@ -33,8 +33,8 @@ void config_manager::parse()
 	ftp_addr = cJSON_GetObjectItem(root, "ftp_id")->valuestring;
 	ftp_addr = cJSON_GetObjectItem(root, "ftp_psw")->valuestring;
 	login_rest	= cJSON_GetObjectItem(root, "login_rest")->valuestring;
-	upload_rest_base	= cJSON_GetObjectItem(root, "upload_rest")->valuestring;
-	download_rest_base	= cJSON_GetObjectItem(root, "download_rest")->valuestring;
+	upload_rest	= cJSON_GetObjectItem(root, "upload_rest")->valuestring;
+	download_rest	= cJSON_GetObjectItem(root, "download_rest")->valuestring;
 	cJSON_Delete(root);
 	return;
 }
