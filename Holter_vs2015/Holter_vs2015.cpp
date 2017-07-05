@@ -2,7 +2,6 @@
 // Holter_vs2015.cpp : Defines the class behaviors for the application.
 //
 
-#include "stdafx.h"
 #include "Holter_vs2015.h"
 #include "Holter_vs2015Dlg.h"
 

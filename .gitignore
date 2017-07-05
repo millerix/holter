@@ -240,3 +240,7 @@ ModelManifest.xml
 
 # FAKE - F# Make
 .fake/
+/Holter_vs2015/release_static
+/Holter_vs2015/Release_libcurldll
+/Holter_vs2015/Debug_libcurldll
+/Release_libcurldll

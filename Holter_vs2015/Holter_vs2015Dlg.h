@@ -1,9 +1,8 @@
 
 // Holter_vs2015Dlg.h : header file
-//
-
 #pragma once
-
+#include "stdafx.h"
+#include "curlapi.h"
 
 // CHolter_vs2015Dlg dialog
 class CHolter_vs2015Dlg : public CDialogEx
@@ -31,4 +30,16 @@ protected:
 	afx_msg void OnPaint();
 	afx_msg HCURSOR OnQueryDragIcon();
 	DECLARE_MESSAGE_MAP()
+public:
+	CString m_uid;
+	CString m_password;
+	CString m_fpath;
+	CString m_dlurl;
+	curl_interface curl_imp;
+
+	afx_msg void OnBnClickedOk();
+	afx_msg void OnClickedupload();
+	afx_msg void OnClickedDownLoad();
+
+	afx_msg void OnBnClickedButton3();
 };

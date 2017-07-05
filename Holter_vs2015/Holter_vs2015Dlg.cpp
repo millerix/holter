@@ -2,14 +2,19 @@
 // Holter_vs2015Dlg.cpp : implementation file
 //
 
-#include "stdafx.h"
+
 #include "Holter_vs2015.h"
 #include "Holter_vs2015Dlg.h"
 #include "afxdialogex.h"
+#include "curlapi.h"
+
+using namespace std;
 
 #ifdef _DEBUG
 #define new DEBUG_NEW
 #endif
+
+//store http authentication token
 
 
 // CAboutDlg dialog used for App About
@@ -51,6 +56,11 @@ END_MESSAGE_MAP()
 
 CHolter_vs2015Dlg::CHolter_vs2015Dlg(CWnd* pParent /*=NULL*/)
 	: CDialogEx(IDD_HOLTER_VS2015_DIALOG, pParent)
+	, m_uid(_T(""))
+	, m_password(_T(""))
+	, m_fpath(_T(""))
+	, m_dlurl(_T(""))
+	, curl_imp()
 {
 	m_hIcon = AfxGetApp()->LoadIcon(IDR_MAINFRAME);
 }
@@ -58,12 +68,24 @@ CHolter_vs2015Dlg::CHolter_vs2015Dlg(CWnd* pParent /*=NULL*/)
 void CHolter_vs2015Dlg::DoDataExchange(CDataExchange* pDX)
 {
 	CDialogEx::DoDataExchange(pDX);
+	DDX_Text(pDX, IDC_EDIT1, m_uid);
+	DDV_MaxChars(pDX, m_uid, 100);
+	DDX_Text(pDX, IDC_EDIT2, m_password);
+	DDV_MaxChars(pDX, m_password, 100);
+	DDX_Text(pDX, IDC_EDIT3, m_fpath);
+	DDV_MaxChars(pDX, m_fpath, 100);
+	DDX_Text(pDX, IDC_EDIT4, m_dlurl);
+	DDV_MaxChars(pDX, m_dlurl, 100);
 }
 
 BEGIN_MESSAGE_MAP(CHolter_vs2015Dlg, CDialogEx)
 	ON_WM_SYSCOMMAND()
 	ON_WM_PAINT()
 	ON_WM_QUERYDRAGICON()
+	ON_BN_CLICKED(IDOK, &CHolter_vs2015Dlg::OnBnClickedOk)
+	ON_BN_CLICKED(IDC_BUTTON1, &CHolter_vs2015Dlg::OnClickedupload)
+	ON_BN_CLICKED(IDC_BUTTON2, &CHolter_vs2015Dlg::OnClickedDownLoad)
+	ON_BN_CLICKED(IDC_BUTTON3, &CHolter_vs2015Dlg::OnBnClickedButton3)
 END_MESSAGE_MAP()
 
 
@@ -152,3 +174,46 @@ HCURSOR CHolter_vs2015Dlg::OnQueryDragIcon()
 	return static_cast<HCURSOR>(m_hIcon);
 }
 
+
+
+//upload
+void CHolter_vs2015Dlg::OnClickedupload()
+{
+	// TODO: Add your control notification handler code here
+	UpdateData(TRUE);
+	//get upload list from db
+	//send json head and zip file one by one
+	//
+
+	//CString json_buf=info2json();
+	//postjson("http://172.104.78.181/case/postcase.do", json_buf, 0, 3);
+	//CString ftphost = "ftp://172.104.78.181:2121";
+	//CString ulurl = ftphost + "/" + m_uid + "/" + "save005.rar";
+	//upload(ulurl, m_fpath, 0, 3); 
+}
+
+
+//download
+void CHolter_vs2015Dlg::OnClickedDownLoad()
+{
+	// TODO: Add your control notification handler code here
+	UpdateData(TRUE);
+	//download("ftp://172.104.78.181:2121/DEEP.iso", "f:\\DEEP.iso", 0, 3);
+	//download(m_dlurl, "f:\\DEEP.iso", 0, 3);
+}
+
+//refresh
+void CHolter_vs2015Dlg::OnBnClickedButton3()
+{
+	// TODO: Add your control notification handler code here
+	//refresh_remotelist("f:\\token.txt","f:\\remotelist.json");
+	//refresh_remotelist();
+}
+
+//login
+void CHolter_vs2015Dlg::OnBnClickedOk()
+{
+	// TODO: Add your control notification handler code here
+	UpdateData(TRUE);
+	curl_imp.login(m_uid, m_password);
+}
