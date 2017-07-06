@@ -48,6 +48,9 @@
     <ClInclude Include="config_manager.h">
       <Filter>Header Files</Filter>
     </ClInclude>
+    <ClInclude Include="DBFun.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="Holter_vs2015.cpp">
@@ -69,6 +72,9 @@
       <Filter>Source Files</Filter>
     </ClCompile>
     <ClCompile Include="config_manager.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="DBFun.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
   </ItemGroup>

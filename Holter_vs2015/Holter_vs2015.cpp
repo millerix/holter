@@ -49,7 +49,7 @@ BOOL CHolter_vs2015App::InitInstance()
 	InitCommonControlsEx(&InitCtrls);
 
 	CWinApp::InitInstance();
-
+	AfxOleInit();
 
 	AfxEnableControlContainer();
 

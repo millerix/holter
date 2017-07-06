@@ -575,6 +575,7 @@
     <ClInclude Include="cJSON.h" />
     <ClInclude Include="config_manager.h" />
     <ClInclude Include="curlapi.h" />
+    <ClInclude Include="DBFun.h" />
     <ClInclude Include="Holter_vs2015.h" />
     <ClInclude Include="Holter_vs2015Dlg.h" />
     <ClInclude Include="md5.h" />
@@ -590,6 +591,7 @@
       <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">NotUsing</PrecompiledHeader>
     </ClCompile>
     <ClCompile Include="curlapi.cpp" />
+    <ClCompile Include="DBFun.cpp" />
     <ClCompile Include="Holter_vs2015.cpp" />
     <ClCompile Include="Holter_vs2015Dlg.cpp" />
     <ClCompile Include="md5.cpp">
